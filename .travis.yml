@@ -30,8 +30,13 @@ install:
   - gcc --version
   - g++ --version
   - ls -la /usr/lib/x86_64-linux-gnu/
-  - g++ -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=1 -fabi-compat-version=8 -c -o test.o test.cpp
-  - nm test.o | c++filt
-  - g++ -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=1 -fabi-compat-version=8 test.cpp
-  - ldd a.out
-  
+#  - g++ -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=1 -fabi-compat-version=8 -c -o test.o test.cpp
+#  - nm test.o | c++filt
+#  - g++ -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=1 -fabi-compat-version=8 test.cpp
+#  - ldd a.out
+  - ld -lgtk-x11-2.0 --verbose
+  - ld -lgdk-x11-2.0 --verbose
+  - ld -lpangocairo-1.0 --verbose
+  - ld -latk-1.0 --verbose
+  - ld -lpango-1.0 --verbose
+
