@@ -1,3 +1,8 @@
 #include <string>
+#include <iostream>
+void f(std::string s){std::cout<<s<<std::endl;}
 
-void f(std::string s){}
+int main() {
+    f("aaa");
+    return 0;
+}
