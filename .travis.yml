@@ -28,6 +28,7 @@ before_install:
 install:
   - gcc --version
   - g++ --version
-  - g++ -std=c++11 -c -o test.o test.cpp
+  - ls -la /usr/lib/x86_64-linux-gnu/
+  - g++ -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=1 -c -o test.o test.cpp
   - nm test.o | c++filt
   
