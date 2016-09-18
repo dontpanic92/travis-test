@@ -1,0 +1,33 @@
+sudo: required
+
+language: cpp
+
+os:
+  - linux
+
+#cache:
+#  directories:
+#    - $HOME/binutils
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - gcc-5
+      - g++-5
+#      - libxxf86vm-dev
+#      - libnotify-dev
+#      - binutils
+      
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo unlink /usr/bin/gcc && sudo ln -s /usr/bin/gcc-5 /usr/bin/gcc; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo unlink /usr/bin/g++ && sudo ln -s /usr/bin/g++-5 /usr/bin/g++; fi
+  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then free -m; fi
+
+install:
+  - gcc --version
+  - g++ --version
+  - g++ -std=c++11 -c -o test.o test.cpp
+  - nm test.o | c++filt
+  
