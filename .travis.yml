@@ -30,8 +30,8 @@ install:
   - gcc --version
   - g++ --version
   - ls -la /usr/lib/x86_64-linux-gnu/
-  - g++ -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=1 -fabi-version=9 -c -o test.o test.cpp
+  - g++ -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=1 -fabi-compat-version=8 -c -o test.o test.cpp
   - nm test.o | c++filt
-  - g++ -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=1 -fabi-version=9 test.cpp
+  - g++ -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=1 -fabi-compat-version=8 test.cpp
   - ldd a.out
   
