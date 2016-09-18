@@ -28,7 +28,7 @@ before_install:
 install:
   - gcc --version
   - g++ --version
-  - ls -la /usr/lib/libstd*
+  - ls -la /usr/lib/
   - g++ -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=1 -c -o test.o test.cpp
   - nm test.o | c++filt
   - g++ -std=c++11 -D_GLIBCXX_USE_CXX11_ABI=1 test.cpp
